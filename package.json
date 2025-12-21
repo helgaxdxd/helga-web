@@ -1,0 +1,16 @@
+{
+  "name": "helga-web",
+  "version": "1.0.0",
+  "description": "Portal profesional de Helga",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "keywords": [],
+  "author": "Helga",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
