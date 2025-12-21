@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} | Helga</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #000; color: white; font-family: -apple-system, system-ui, sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 28px; }
-    </style>
-</head>
-<body class="p-6">
-    {{ content | safe }}
-</body>
-</html>
+<style>
+    body { 
+        background-color: #FDFCF8; /* Crema suave */
+        color: #4A4A4A; /* Gris carbón suave, no negro */
+        font-family: 'Outfit', sans-serif; /* Una fuente más redonda y amigable */
+    }
+    .glass { 
+        background: rgba(255, 255, 255, 0.7); 
+        backdrop-filter: blur(10px); 
+        border: 2px solid #EFEBE4; /* Bordes color arena */
+        border-radius: 40px; /* Bordes mucho más redondeados */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* Sombras muy tenues */
+    }
+    .accent-text { color: #D4A373; /* Terracota Boho */ }
+</style>
