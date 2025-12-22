@@ -1,140 +1,168 @@
 ---
 layout: base.njk
-title: 0xHELGA // Root_Interface
+title: 0xHELGA // Digital Journal
 ---
 
 <main class="bento-grid">
   
-  <section class="bento-box presentation">
-    <div class="box-label">// SESSION: 0xHELGA_ROOT</div>
-    <h1>Helga.</h1>
-    <p class="poetic-text">Engineering systems, <br>capturing ephemeral moments. ⊹ 🎀</p>
+  <section class="bento-card presentation">
+    <div class="card-header-brown">SESSION_ID: @0xHELGA_CORE</div>
+    <div class="card-body">
+      <h1>Helga.</h1>
+      <p class="poetic">Engineering systems, <br>capturing ephemeral moments. ⊹ 🎀</p>
+    </div>
   </section>
 
-  <section class="bento-box vault">
-    <div class="box-label">// THE_VAULT [🔐]</div>
-    <p class="mono-text">Ciphers & Logic</p>
-    <div class="status-tag">Status: Encrypted</div>
+  <section class="bento-card vault">
+    <div class="card-header-brown">THE_VAULT [🔐]</div>
+    <div class="card-body">
+      <p class="mono">> Ciphers_&_Logic</p>
+      <p class="mono">> Secure_Archive</p>
+      <div class="status-tag">STATUS: ENCRYPTED</div>
+    </div>
   </section>
 
-  <section class="bento-box heart">
-    <div class="box-label">// HEART_PROTOCOL [🎀]</div>
-    <p>Curated Tools & Goods</p>
-    <span class="mini-tag">Affiliates_On</span>
+  <section class="bento-card input-log">
+    <div class="card-header-brown">INPUT_LOG: MOMENTS</div>
+    <div class="card-body">
+      <div class="entry-preview">
+        <h3>The Beginning of Helga</h3>
+        <small>Processing_Data...</small>
+      </div>
+    </div>
   </section>
 
-  <section class="bento-box input">
-    <div class="box-label">// INPUT_LOG</div>
-    <p class="mono-text">> Fetching_Data...</p>
+  <section class="bento-card heart">
+    <div class="card-header-brown">HEART_PROTOCOL [🎀]</div>
+    <div class="card-body">
+      <p>Curated Tools & Goods</p>
+      <div class="mini-tag">AFFILIATES_ACTIVE</div>
+    </div>
   </section>
 
-  <section class="bento-box reel">
-    <div class="box-label">// MOMENTS_REEL [🎞️]</div>
-    <div class="photo-stub">Waiting for light...</div>
+  <section class="bento-card reel">
+    <div class="card-header-brown">MOMENTS_REEL [🎞️]</div>
+    <div class="card-body photo-zone">
+      <div class="photo-placeholder">DRAG_&_DROP_IMG</div>
+    </div>
   </section>
 
-  <section class="bento-box hall">
-    <div class="box-label">// HALL_OF_FAME</div>
-    <p>Engineering Pillars</p>
+  <section class="bento-card hall">
+    <div class="card-header-brown">HALL_OF_FAME</div>
+    <div class="card-body">
+      <p>@Mentors_&_Pillars</p>
+    </div>
   </section>
 
-  <section class="bento-box moms">
-    <div class="box-label">// MOMS_PROJECT [🏠]</div>
-    <p>Handmade Legacy</p>
-    <div class="soft-link">@Handmade_Goods</div>
+  <section class="bento-card moms">
+    <div class="card-header-brown">MOM'S_PROJECT [🏠]</div>
+    <div class="card-body">
+      <p>Handmade Goods & More 💖</p>
+    </div>
   </section>
 
 </main>
 
 <style>
   :root {
-    --bg-color: #0d0d0d;
-    --box-bg: #141414;
-    --cafe-deep: #43342b; /* El café de tu intro original */
-    --cafe-muted: #6b584c;
-    --cream: #d6c5b0;
-    --rosa-helga: #b5838d;
-    --text-dim: #888;
+    --bg-light: #f4f4f2; /* El fondo claro original */
+    --card-bg: #ffffff;
+    --header-brown: #43342b;
+    --text-main: #2a2a2a;
+    --text-muted: #777;
+    --accent-cream: #d6c5b0;
+  }
+
+  body {
+    background-color: var(--bg-light);
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
   }
 
   .bento-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(160px, auto);
-    gap: 12px;
-    padding: 25px;
-    background: var(--bg-color);
+    grid-auto-rows: minmax(170px, auto);
+    gap: 15px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .bento-box {
-    background: var(--box-bg);
-    border: 1px solid #1f1f1f;
+  .bento-card {
+    background: var(--card-bg);
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+
+  /* El Encabezado Café que recordamos */
+  .card-header-brown {
+    background: var(--header-brown);
+    color: var(--accent-cream);
+    padding: 10px 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .card-body {
     padding: 22px;
-    border-radius: 2px;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
 
-  /* --- La paleta café y tierra --- */
-  .presentation { 
-    grid-column: span 2; 
-    grid-row: span 2; 
-    border-top: 4px solid var(--cafe-deep); 
-    background: #181513; /* Fondo ligeramente más café */
-  }
-  
-  .vault { border-top: 3px solid #5a5a42; } /* Verde musgo seco */
-  .heart { border-top: 3px solid var(--rosa-helga); }
-  .input { border-top: 3px solid var(--cafe-muted); }
-  .reel { border-top: 3px solid #5d5d6a; }
-  .hall { border-top: 3px solid var(--cream); }
-  .moms { border-top: 3px solid #8e7d71; }
-
-  .box-label {
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    color: #4a4a4a;
-    letter-spacing: 1.5px;
-  }
+  /* Layout Bento */
+  .presentation { grid-column: span 2; grid-row: span 2; }
+  .input-log { grid-row: span 2; }
 
   h1 { 
-    font-size: 3rem; 
-    margin: 10px 0; 
-    color: var(--cream); /* Color crema para el nombre */
+    font-size: 3.5rem; 
+    margin: 0; 
+    color: var(--text-main); 
     font-weight: 300; 
+    letter-spacing: -1.5px;
+    font-family: 'Playfair Display', serif;
   }
 
-  .poetic-text { 
+  .poetic { 
     font-family: Georgia, serif; 
     font-style: italic; 
-    color: var(--text-dim); 
-    line-height: 1.4;
+    color: var(--text-muted); 
+    font-size: 1.1rem;
+    margin-top: 10px;
   }
 
-  .mono-text { 
+  .mono { 
     font-family: 'Courier New', monospace; 
     font-size: 11px; 
-    color: #555; 
+    color: #888; 
   }
 
-  .status-tag, .mini-tag, .soft-link {
+  .mini-tag, .status-tag {
     font-size: 8px;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    border: 1px solid #2a2a2a;
-    padding: 3px 6px;
+    color: #fff;
+    background: var(--header-brown);
+    padding: 3px 8px;
     width: fit-content;
+    font-weight: bold;
+    border-radius: 2px;
   }
 
-  .photo-stub {
+  .photo-placeholder {
     flex-grow: 1;
+    border: 1px dashed #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px dashed #2a2a2a;
-    margin-top: 10px;
-    color: #444;
+    color: #ccc;
     font-size: 10px;
   }
 </style>
