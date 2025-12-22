@@ -19,14 +19,27 @@ title: "Dashboard"
         </p>
     </div>
 
-    <div class="md:col-span-2 bg-[#5A4B4B] p-10 rounded-[2rem] text-[#FFF9F9] flex flex-col justify-between shadow-xl">
+    <div class="md:col-span-1 bg-[#FDF8F7] border border-[#F5E6E3] p-8 rounded-[2rem] flex flex-col justify-between">
+        <div>
+            <span class="text-[9px] font-mono text-[#E6B8AF] uppercase tracking-widest block mb-2">Currently_Coding</span>
+            <h2 class="text-xl text-[#8C7575] font-serif italic">Personal Bento OS</h2>
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E6B8AF] opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#E6B8AF]"></span>
+            </span>
+            <span class="text-[10px] font-mono text-gray-400">v1.0.25_STABLE</span>
+        </div>
+    </div>
+
+    <div class="md:col-span-1 bg-[#5A4B4B] p-8 rounded-[2rem] text-[#FFF9F9] flex flex-col justify-between shadow-xl">
         <div class="flex justify-between items-start">
              <span class="text-[10px] font-mono opacity-60">STACK_STATUS</span>
              <span class="text-xs">⚡️</span>
         </div>
         <div>
-            <p class="font-mono text-xs mb-2 opacity-80">CURRENT_STACK:</p>
-            <p class="text-2xl font-serif italic">Eleventy, Tailwind & <br>Cloud Architecture</p>
+            <p class="text-xl font-serif italic">Eleventy, Tailwind & Cloud</p>
         </div>
     </div>
 
@@ -36,12 +49,12 @@ title: "Dashboard"
             <span class="text-[10px] font-mono text-gray-400 uppercase">Input_Log</span>
         </div>
         
-        <div class="space-y-6">
-            {%- for story in collections.stories -%}
-            <a href="{{ story.url }}" class="group flex justify-between items-center hover:bg-white/50 p-4 rounded-2xl transition-all">
+        <div class="space-y-4">
+            {%- for story in collections.stories | reverse -%}
+            <a href="{{ story.url }}" class="group flex justify-between items-center hover:bg-white/50 p-3 rounded-2xl transition-all">
                 <div>
                     <span class="text-[9px] font-mono text-[#E6B8AF] mb-1 block">{{ story.data.date | dateFilter }}</span>
-                    <h3 class="text-xl font-serif group-hover:translate-x-2 transition-transform">{{ story.data.title }}</h3>
+                    <h3 class="text-lg font-serif group-hover:translate-x-2 transition-transform">{{ story.data.title }}</h3>
                 </div>
                 <span class="text-xl opacity-0 group-hover:opacity-100 transition-opacity">→</span>
             </a>
@@ -49,29 +62,35 @@ title: "Dashboard"
         </div>
     </div>
 
-    <div class="md:col-span-1 bg-white/50 border border-[#F5E6E3] p-8 rounded-[2rem] flex flex-col justify-between">
-        <div>
-            <span class="text-[10px] font-mono text-[#8C7575] uppercase tracking-widest block mb-4">// The_Vault</span>
-            <h2 class="text-2xl text-[#5A4B4B] font-serif italic mb-2">Cryptography</h2>
-            <p class="text-[10px] font-mono text-gray-400 italic">Secure. Logic. Ciphers.</p>
-        </div>
-        <div class="mt-4 pt-4 border-t border-[#F5E6E3]">
-            <span class="text-[9px] text-[#E6B8AF] font-bold uppercase">Status: Encrypted 🔐</span>
+    <div class="md:col-span-1 bg-white/50 border border-[#F5E6E3] p-8 rounded-[2rem] flex flex-col">
+        <span class="text-[10px] font-mono text-[#8C7575] uppercase tracking-widest mb-6">// Hall_of_Fame</span>
+        <div class="flex flex-wrap gap-2">
+            {%- for mentor in collections.hall_of_fame -%}
+            <span class="text-[11px] font-serif italic text-[#5A4B4B] bg-[#F5E6E3]/50 px-3 py-1 rounded-full border border-[#F5E6E3]">
+                @{{ mentor.data.title }}
+            </span>
+            {%- endfor -%}
         </div>
     </div>
 
-    <div class="md:col-span-1 h-64 bg-[#F5E6E3] rounded-[2rem] overflow-hidden group relative">
-        <div class="absolute inset-0 flex items-center justify-center text-[#8C7575] font-mono text-[10px] uppercase tracking-widest">
+    <div class="md:col-span-1 bg-white/50 border border-[#F5E6E3] p-8 rounded-[2rem] flex flex-col justify-between">
+        <span class="text-[10px] font-mono text-[#8C7575] uppercase tracking-widest block mb-4">// The_Vault</span>
+        <h2 class="text-2xl text-[#5A4B4B] font-serif italic mb-2">Cryptography</h2>
+        <span class="text-[9px] text-[#E6B8AF] font-bold uppercase mt-4">Status: Encrypted 🔐</span>
+    </div>
+
+    <div class="md:col-span-1 h-full min-h-[150px] bg-[#F5E6E3] rounded-[2rem] overflow-hidden group relative border border-[#F5E6E3]">
+        <div class="absolute inset-0 flex items-center justify-center text-[#8C7575] font-mono text-[9px] uppercase tracking-widest">
             <span>[ Moments_Reel ]</span>
         </div>
-        <img src="/assets/img/tu-foto.jpg" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <img src="/assets/img/reel-1.jpg" class="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500">
     </div>
 
     <div class="md:col-span-2 bg-[#FDF8F7] border border-[#E6B8AF] p-8 rounded-[2rem] flex items-center justify-between">
         <div class="flex flex-col">
             <span class="text-[10px] font-mono text-[#E6B8AF] uppercase mb-2">Family Legacy</span>
             <h2 class="text-3xl text-[#8C7575] font-serif italic">Mom's Project</h2>
-            <p class="text-sm text-[#5A4B4B] font-light mt-1">Handmade with love & intentionality.</p>
+            <p class="text-sm text-[#5A4B4B] font-light mt-1">Handmade Goods & More 💖</p>
         </div>
         <div class="w-16 h-16 bg-[#E6B8AF]/20 rounded-full flex items-center justify-center text-2xl">🏠</div>
     </div>
@@ -79,6 +98,6 @@ title: "Dashboard"
     <div class="md:col-span-1 bg-[#E6B8AF] p-8 rounded-[2rem] flex flex-col items-center justify-center text-center text-white">
         <span class="text-3xl mb-4">🎀</span>
         <p class="text-[10px] font-mono uppercase tracking-widest mb-2">Heart Protocol</p>
-        <p class="text-xs font-serif italic">Curated essentials & links.</p>
+        <p class="text-xs font-serif italic">Curated essentials.</p>
     </div>
 </main>
