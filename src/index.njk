@@ -5,122 +5,64 @@ title: 0xHELGA // Home
 
 <main class="bento-grid">
   
-  <section class="bento-item presentation" id="root">
-    <div class="status-bar">SYSTEM_READY [OK]</div>
-    <h1>Helga</h1>
-    <p class="bio">Ingeniera de Software // Hacker Poetic Aesthetics. Construyendo sistemas con lógica y corazón. ⊹ 🎀</p>
-  </section>
-
-  <section class="bento-item core-engine">
-    <h3>💻 Core Engine</h3>
-    <ul class="tech-stack">
-      <li>> Javascript / Node.js</li>
-      <li>> 11ty / Markdown</li>
-      <li>> Git & Deploy Automation</li>
-    </ul>
-    <div class="current-project">
-      <small>Currently_Coding:</small>
-      <p>Refactoring Personal Bento OS</p>
-    </div>
+  <section class="bento-item presentation">
+    <div class="header-meta">SESSION_ID: @0xHELGA_CORE</div>
+    <h1>Helga.</h1>
+    <p>Engineering systems, capturing ephemeral moments. ⊹ 🎀</p>
   </section>
 
   <section class="bento-item the-vault">
     <h3>🔐 The Vault</h3>
-    <p class="subtitle">Archivo de Criptografía y Seguridad</p>
-    <div class="posts-list">
-      {% for post in collections.cryptography | reverse %}
-        <a href="{{ post.url }}" class="entry-link">> {{ post.data.title }}</a>
+    <div class="vault-content">
+      {% for post in collections.cryptography %}
+        <a href="{{ post.url }}">> {{ post.data.title }}</a>
       {% else %}
-        <p class="empty">Esperando primer cifrado...</p>
+        <p class="empty-status">Ciphers pending...</p>
       {% endfor %}
     </div>
   </section>
 
   <section class="bento-item input-log">
-    <h3>📚 Input Log</h3>
-    <div class="log-entries">
-      {% for post in collections.input_log | reverse %}
-        <div class="log-item">
-          <span class="date">{{ post.date | dateFilter }}</span>
-          <a href="{{ post.url }}">{{ post.data.title }}</a>
+    <h3>📚 Input_Log</h3>
+    <div class="log-list">
+      {% for entry in collections.input_log %}
+        <div class="log-entry">
+          <span class="mono">{{ entry.date | dateFilter }}</span>
+          <a href="{{ entry.url }}">{{ entry.data.title }}</a>
         </div>
       {% endfor %}
     </div>
   </section>
 
+  <section class="bento-item heart-protocol">
+    <h3>🎀 Heart Protocol</h3>
+    <div class="links-zone">
+      <p>Curated tools & essentials.</p>
+      </div>
+  </section>
+
   <section class="bento-item photo-reel">
     <h3>🎞️ Moments Reel</h3>
-    <div class="reel-container">
-      <div class="photo-placeholder">
-        <span>[ ESPACIO PARA TU CARRETE ]</span>
-      </div>
+    <div class="reel-grid">
+      <div class="photo-slot">[PHOTO_01]</div>
     </div>
   </section>
 
-  <section class="bento-item heart-protocol">
-    <h3>🎀 Heart Protocol</h3>
-    <p>Recomendaciones y Afiliados</p>
-    <div class="affiliate-links">
-      <p>Próximamente mis productos y herramientas favoritas...</p>
+  <section class="bento-item moms-project">
+    <h3>🏠 Mom's Project</h3>
+    <div class="family-support">
+      <p>Handmade Goods & More</p>
+      <a href="#" class="support-btn">Visit Shop</a>
     </div>
   </section>
 
   <section class="bento-item hall-of-fame">
     <h3>🎖️ Hall of Fame</h3>
-    <div class="mentors">
-      {% for post in collections.hall_of_fame %}
-        <a href="{{ post.url }}" class="mentor-tag">@{{ post.data.title }}</a>
+    <div class="pillars">
+      {% for person in collections.hall_of_fame %}
+        <span class="pill">{{ person.data.title }}</span>
       {% endfor %}
     </div>
   </section>
 
-  <section class="bento-item moms-business">
-    <h3>🏠 Mom's Project</h3>
-    <div class="business-info">
-      <p>Apoyando el talento de mamá.</p>
-      <div class="highlight-box">
-        <span>WORK IN PROGRESS</span>
-      </div>
-    </div>
-  </section>
-
 </main>
-
-<style>
-  .bento-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .bento-item {
-    background: #0d0d0d;
-    border: 1px solid #1a1a1a;
-    padding: 1.5rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-  }
-
-  .bento-item:hover {
-    border-color: #ffb7c5; /* Tu rosa 🎀 */
-    box-shadow: 0 0 15px rgba(255, 183, 197, 0.1);
-  }
-
-  .presentation { grid-column: span 2; }
-  .the-vault { border-left: 3px solid #00ff41; } /* Acento verde cripto */
-  .heart-protocol { border-left: 3px solid #ffb7c5; } /* Acento rosa */
-  
-  h3 { 
-    margin-top: 0;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    color: #888;
-  }
-
-  .entry-link { display: block; margin: 0.5rem 0; color: #fff; text-decoration: none; }
-  .entry-link:hover { color: #ffb7c5; }
-</style>
