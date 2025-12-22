@@ -1,101 +1,126 @@
 ---
 layout: base.njk
-title: "Home"
+title: 0xHELGA // Home
 ---
-<header class="mb-12 ml-4 flex justify-between items-center">
-    <div class="flex flex-col">
-        <span class="text-[10px] font-mono uppercase tracking-[0.5em] text-[#E6B8AF] font-bold">SESSION_ID: 0xHELGA_CORE</span>
-        <span class="text-[9px] text-gray-400 font-mono mt-1 italic">STATUS: HYDRATING_AESTHETICS...</span>
-    </div>
-    <span class="text-[10px] font-mono text-gray-300 tracking-widest uppercase">CDMX // {{ "now" | dateFilter }}</span>
-</header>
 
-<main class="grid grid-cols-1 md:grid-cols-4 gap-4">
-    <div class="md:col-span-2 bg-white/50 backdrop-blur-md border border-[#F5E6E3] p-12 rounded-[2rem] flex flex-col justify-center bento-item">
-        <h1 class="text-7xl mb-4 text-[#8C7575] font-serif italic tracking-tighter">Helga.</h1>
-        <p class="text-[10px] font-mono text-[#E6B8AF] uppercase tracking-widest mb-4">> ROOT_ACCESS: HELGA_WORLD</p>
-        <p class="text-lg text-[#5A4B4B] font-light leading-relaxed italic">
-            Engineering systems, <br>capturing ephemeral moments.
-        </p>
-    </div>
+<main class="bento-grid">
+  
+  <section class="bento-item presentation" id="root">
+    <div class="status-bar">SYSTEM_READY [OK]</div>
+    <h1>Helga</h1>
+    <p class="bio">Ingeniera de Software // Hacker Poetic Aesthetics. Construyendo sistemas con lógica y corazón. ⊹ 🎀</p>
+  </section>
 
-    <div class="md:col-span-2 bg-[#5A4B4B] p-10 rounded-[2rem] text-[#FFF9F9] flex flex-col justify-between shadow-xl bento-item">
-        <div class="flex justify-between items-start">
-             <span class="text-[10px] font-mono opacity-60">CORE_ENGINE_v1.0</span>
-             <span class="text-xs">⚡️</span>
-        </div>
-        <div>
-            <p class="font-mono text-[9px] mb-2 opacity-60 uppercase tracking-widest">STYLING_MODULE:</p>
-            <p class="text-2xl font-serif italic">Soft Architecture & <br>Aesthetic Compiling</p>
-        </div>
+  <section class="bento-item core-engine">
+    <h3>💻 Core Engine</h3>
+    <ul class="tech-stack">
+      <li>> Javascript / Node.js</li>
+      <li>> 11ty / Markdown</li>
+      <li>> Git & Deploy Automation</li>
+    </ul>
+    <div class="current-project">
+      <small>Currently_Coding:</small>
+      <p>Refactoring Personal Bento OS</p>
     </div>
+  </section>
 
-    <div class="md:col-span-3 bg-white/30 border border-dashed border-[#E6B8AF] p-10 rounded-[2rem] bento-item">
-        <div class="flex justify-between items-center mb-8 pb-4 border-b border-[#F5E6E3]">
-            <h2 class="text-2xl text-[#8C7575] font-serif italic font-light">Input_Log: Moments_Collection</h2>
-            <span class="text-[9px] font-mono text-gray-400 uppercase tracking-tighter italic">FETCHING_MEMORIES...</span>
-        </div>
-        
-        <div class="space-y-6">
-            {%- for story in collections.stories -%}
-            <a href="{{ story.url }}" class="group flex justify-between items-center hover:bg-white/60 p-5 rounded-3xl transition-all border border-transparent hover:border-[#F5E6E3]">
-                <div>
-                    <span class="text-[9px] font-mono text-[#E6B8AF] mb-1 block">TIMESTAMP // {{ story.data.date | dateFilter }}</span>
-                    <h3 class="text-2xl font-serif italic text-[#5A4B4B] group-hover:translate-x-2 transition-transform">{{ story.data.title }}</h3>
-                </div>
-                <span class="text-xl opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">✨</span>
-            </a>
-            {%- else -%}
-            <p class="italic text-gray-300 font-mono text-[10px]">EMPTY_ARCHIVE: Waiting for new inputs...</p>
-            {%- endfor -%}
-        </div>
+  <section class="bento-item the-vault">
+    <h3>🔐 The Vault</h3>
+    <p class="subtitle">Archivo de Criptografía y Seguridad</p>
+    <div class="posts-list">
+      {% for post in collections.cryptography | reverse %}
+        <a href="{{ post.url }}" class="entry-link">> {{ post.data.title }}</a>
+      {% else %}
+        <p class="empty">Esperando primer cifrado...</p>
+      {% endfor %}
     </div>
+  </section>
 
-    <div class="md:col-span-1 bg-[#E6B8AF] p-8 rounded-[2rem] flex flex-col items-center justify-center text-center text-white bento-item shadow-lg shadow-[#E6B8AF]/20">
-        <span class="text-3xl mb-4">🎀</span>
-        <p class="text-[9px] font-mono uppercase tracking-[0.2em] mb-2">Heart_Protocol</p>
-        <p class="text-xs font-serif italic leading-tight">Syncing ideas <br>& architecture.</p>
-    </div>
-    <div class="md:col-span-2 bg-white/50 border border-[#F5E6E3] p-8 rounded-[2rem] bento-item flex items-center gap-6">
-        <div class="w-12 h-12 rounded-full bg-[#E6B8AF] flex items-center justify-center animate-pulse">
-            <span class="text-white text-xl">💻</span>
+  <section class="bento-item input-log">
+    <h3>📚 Input Log</h3>
+    <div class="log-entries">
+      {% for post in collections.input_log | reverse %}
+        <div class="log-item">
+          <span class="date">{{ post.date | dateFilter }}</span>
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
         </div>
-        <div>
-            <span class="text-[9px] font-mono text-gray-400 uppercase tracking-widest">CURRENTLY_CODING</span>
-            <p class="text-xl font-serif italic text-[#5A4B4B]">Refining Bento Architecture & <br>Hacker Poetic Esthetics</p>
-        </div>
+      {% endfor %}
     </div>
+  </section>
 
-    <div class="md:col-span-2 bg-white/50 border border-[#F5E6E3] p-8 rounded-[2rem] bento-item">
-        <span class="text-[9px] font-mono text-gray-400 uppercase tracking-widest mb-4 block text-center">SOCIAL_PROTOCOLS // CONNECT</span>
-        <div class="flex justify-around items-center h-full pb-4">
-            <a href="https://snapchat.com/add/TU_USUARIO" class="group flex flex-col items-center">
-                <span class="text-2xl group-hover:scale-110 transition-transform">👻</span>
-                <span class="text-[8px] font-mono text-[#E6B8AF] mt-1">SNAPCHAT</span>
-            </a>
-            <a href="https://instagram.com/TU_USUARIO" class="group flex flex-col items-center">
-                <span class="text-2xl group-hover:scale-110 transition-transform">📸</span>
-                <span class="text-[8px] font-mono text-[#E6B8AF] mt-1">INSTAGRAM</span>
-            </a>
-            <a href="https://linkedin.com/in/TU_USUARIO" class="group flex flex-col items-center">
-                <span class="text-2xl group-hover:scale-110 transition-transform">💼</span>
-                <span class="text-[8px] font-mono text-[#E6B8AF] mt-1">LINKEDIN</span>
-            </a>
-            <a href="mailto:tu@email.com" class="group flex flex-col items-center">
-                <span class="text-2xl group-hover:scale-110 transition-transform">✉️</span>
-                <span class="text-[8px] font-mono text-[#E6B8AF] mt-1">EMAIL</span>
-            </a>
-        </div>
+  <section class="bento-item photo-reel">
+    <h3>🎞️ Moments Reel</h3>
+    <div class="reel-container">
+      <div class="photo-placeholder">
+        <span>[ ESPACIO PARA TU CARRETE ]</span>
+      </div>
     </div>
+  </section>
+
+  <section class="bento-item heart-protocol">
+    <h3>🎀 Heart Protocol</h3>
+    <p>Recomendaciones y Afiliados</p>
+    <div class="affiliate-links">
+      <p>Próximamente mis productos y herramientas favoritas...</p>
+    </div>
+  </section>
+
+  <section class="bento-item hall-of-fame">
+    <h3>🎖️ Hall of Fame</h3>
+    <div class="mentors">
+      {% for post in collections.hall_of_fame %}
+        <a href="{{ post.url }}" class="mentor-tag">@{{ post.data.title }}</a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="bento-item moms-business">
+    <h3>🏠 Mom's Project</h3>
+    <div class="business-info">
+      <p>Apoyando el talento de mamá.</p>
+      <div class="highlight-box">
+        <span>WORK IN PROGRESS</span>
+      </div>
+    </div>
+  </section>
+
 </main>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
+
+<style>
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
-</script>
+
+  .bento-item {
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .bento-item:hover {
+    border-color: #ffb7c5; /* Tu rosa 🎀 */
+    box-shadow: 0 0 15px rgba(255, 183, 197, 0.1);
+  }
+
+  .presentation { grid-column: span 2; }
+  .the-vault { border-left: 3px solid #00ff41; } /* Acento verde cripto */
+  .heart-protocol { border-left: 3px solid #ffb7c5; } /* Acento rosa */
+  
+  h3 { 
+    margin-top: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #888;
+  }
+
+  .entry-link { display: block; margin: 0.5rem 0; color: #fff; text-decoration: none; }
+  .entry-link:hover { color: #ffb7c5; }
+</style>
