@@ -1,0 +1,8 @@
+# Dentro de tu config.yml en collections:
+    editor:
+      preview: false # Para que se sienta más como escribir código puro
+    fields:
+      - {label: "ID de Sesión", name: "title", widget: "string", hint: "Ej: LOG_002: Noche de código"}
+      - {label: "Timestamp", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Contenido del Portal", name: "body", widget: "markdown"}
+      - {label: "Mood_Status", name: "status", widget: "select", options: ["Inspired", "Debugging", "Evolving", "Soft_Mode"]}
