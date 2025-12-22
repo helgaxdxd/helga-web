@@ -1,68 +1,140 @@
 ---
 layout: base.njk
-title: 0xHELGA // Home
+title: 0xHELGA // Root_Interface
 ---
 
 <main class="bento-grid">
   
-  <section class="bento-item presentation">
-    <div class="header-meta">SESSION_ID: @0xHELGA_CORE</div>
+  <section class="bento-box presentation">
+    <div class="box-label">// SESSION: 0xHELGA_ROOT</div>
     <h1>Helga.</h1>
-    <p>Engineering systems, capturing ephemeral moments. ⊹ 🎀</p>
+    <p class="poetic-text">Engineering systems, <br>capturing ephemeral moments. ⊹ 🎀</p>
   </section>
 
-  <section class="bento-item the-vault">
-    <h3>🔐 The Vault</h3>
-    <div class="vault-content">
-      {% for post in collections.cryptography %}
-        <a href="{{ post.url }}">> {{ post.data.title }}</a>
-      {% else %}
-        <p class="empty-status">Ciphers pending...</p>
-      {% endfor %}
-    </div>
+  <section class="bento-box vault">
+    <div class="box-label">// THE_VAULT [🔐]</div>
+    <p class="mono-text">Ciphers & Logic</p>
+    <div class="status-tag">Status: Encrypted</div>
   </section>
 
-  <section class="bento-item input-log">
-    <h3>📚 Input_Log</h3>
-    <div class="log-list">
-      {% for entry in collections.input_log %}
-        <div class="log-entry">
-          <span class="mono">{{ entry.date | dateFilter }}</span>
-          <a href="{{ entry.url }}">{{ entry.data.title }}</a>
-        </div>
-      {% endfor %}
-    </div>
+  <section class="bento-box heart">
+    <div class="box-label">// HEART_PROTOCOL [🎀]</div>
+    <p>Curated Tools & Goods</p>
+    <span class="mini-tag">Affiliates_On</span>
   </section>
 
-  <section class="bento-item heart-protocol">
-    <h3>🎀 Heart Protocol</h3>
-    <div class="links-zone">
-      <p>Curated tools & essentials.</p>
-      </div>
+  <section class="bento-box input">
+    <div class="box-label">// INPUT_LOG</div>
+    <p class="mono-text">> Fetching_Data...</p>
   </section>
 
-  <section class="bento-item photo-reel">
-    <h3>🎞️ Moments Reel</h3>
-    <div class="reel-grid">
-      <div class="photo-slot">[PHOTO_01]</div>
-    </div>
+  <section class="bento-box reel">
+    <div class="box-label">// MOMENTS_REEL [🎞️]</div>
+    <div class="photo-stub">Waiting for light...</div>
   </section>
 
-  <section class="bento-item moms-project">
-    <h3>🏠 Mom's Project</h3>
-    <div class="family-support">
-      <p>Handmade Goods & More</p>
-      <a href="#" class="support-btn">Visit Shop</a>
-    </div>
+  <section class="bento-box hall">
+    <div class="box-label">// HALL_OF_FAME</div>
+    <p>Engineering Pillars</p>
   </section>
 
-  <section class="bento-item hall-of-fame">
-    <h3>🎖️ Hall of Fame</h3>
-    <div class="pillars">
-      {% for person in collections.hall_of_fame %}
-        <span class="pill">{{ person.data.title }}</span>
-      {% endfor %}
-    </div>
+  <section class="bento-box moms">
+    <div class="box-label">// MOMS_PROJECT [🏠]</div>
+    <p>Handmade Legacy</p>
+    <div class="soft-link">@Handmade_Goods</div>
   </section>
 
 </main>
+
+<style>
+  :root {
+    --bg-color: #0d0d0d;
+    --box-bg: #141414;
+    --cafe-deep: #43342b; /* El café de tu intro original */
+    --cafe-muted: #6b584c;
+    --cream: #d6c5b0;
+    --rosa-helga: #b5838d;
+    --text-dim: #888;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(160px, auto);
+    gap: 12px;
+    padding: 25px;
+    background: var(--bg-color);
+  }
+
+  .bento-box {
+    background: var(--box-bg);
+    border: 1px solid #1f1f1f;
+    padding: 22px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* --- La paleta café y tierra --- */
+  .presentation { 
+    grid-column: span 2; 
+    grid-row: span 2; 
+    border-top: 4px solid var(--cafe-deep); 
+    background: #181513; /* Fondo ligeramente más café */
+  }
+  
+  .vault { border-top: 3px solid #5a5a42; } /* Verde musgo seco */
+  .heart { border-top: 3px solid var(--rosa-helga); }
+  .input { border-top: 3px solid var(--cafe-muted); }
+  .reel { border-top: 3px solid #5d5d6a; }
+  .hall { border-top: 3px solid var(--cream); }
+  .moms { border-top: 3px solid #8e7d71; }
+
+  .box-label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #4a4a4a;
+    letter-spacing: 1.5px;
+  }
+
+  h1 { 
+    font-size: 3rem; 
+    margin: 10px 0; 
+    color: var(--cream); /* Color crema para el nombre */
+    font-weight: 300; 
+  }
+
+  .poetic-text { 
+    font-family: Georgia, serif; 
+    font-style: italic; 
+    color: var(--text-dim); 
+    line-height: 1.4;
+  }
+
+  .mono-text { 
+    font-family: 'Courier New', monospace; 
+    font-size: 11px; 
+    color: #555; 
+  }
+
+  .status-tag, .mini-tag, .soft-link {
+    font-size: 8px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    border: 1px solid #2a2a2a;
+    padding: 3px 6px;
+    width: fit-content;
+  }
+
+  .photo-stub {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #2a2a2a;
+    margin-top: 10px;
+    color: #444;
+    font-size: 10px;
+  }
+</style>
