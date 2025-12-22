@@ -1,8 +1,21 @@
-# Dentro de tu config.yml en collections:
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/img"
+public_folder: "/assets/img"
+
+collections:
+  - name: "journal"
+    label: "📖 My Journal"
+    folder: "src/stories"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
-      preview: false # Para que se sienta más como escribir código puro
+      preview: false
     fields:
-      - {label: "ID de Sesión", name: "title", widget: "string", hint: "Ej: LOG_002: Noche de código"}
-      - {label: "Timestamp", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "Contenido del Portal", name: "body", widget: "markdown"}
-      - {label: "Mood_Status", name: "status", widget: "select", options: ["Inspired", "Debugging", "Evolving", "Soft_Mode"]}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "base.njk"}
+      - {label: "Título de la Sesión", name: "title", widget: "string"}
+      - {label: "Fecha", name: "date", widget: "datetime"}
+      - {label: "Cuerpo del Log", name: "body", widget: "markdown"}
+      - {label: "Status_Mood", name: "status", widget: "select", options: ["Inspired 🎀", "Debugging 💻", "Dreaming ✨"]}
