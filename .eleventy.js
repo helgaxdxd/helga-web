@@ -1,7 +1,16 @@
 module.exports = function(eleventyConfig) {
-  // Copia las imágenes y el panel de admin directamente a la web final
+  // Copia de archivos estáticos
   eleventyConfig.addPassthroughCopy("public/img");
   eleventyConfig.addPassthroughCopy("admin");
+
+  // Definir el filtro de fecha que faltaba
+  eleventyConfig.addFilter("dateFilter", (dateObj) => {
+    return new Date(dateObj).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  });
 
   return {
     dir: {

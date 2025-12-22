@@ -1,13 +1,54 @@
----
-layout: base.njk
-title: "Home"
----
-<header class="mb-12 ml-4 flex justify-between items-center">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Helga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400&family=JetBrains+Mono:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --paper: #fdfcf8;
+            --lines: #f1e9e7;
+            --tech-bg: #FDFCF8;
+            --accent: #E6B8AF;
+            --dark-text: #5A4B4B;
+        }
+        body { background-color: var(--tech-bg); color: var(--dark-text); font-family: 'Outfit', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Notebook Styling for stories */
+        .notebook-page {
+            background-color: var(--paper);
+            background-image: linear-gradient(var(--lines) 1px, transparent 1px);
+            background-size: 100% 32px;
+            padding: 80px 60px;
+            max-width: 850px;
+            min-height: 90vh;
+            border-radius: 4px;
+            box-shadow: 8px 8px 0px var(--accent), 20px 20px 60px rgba(0,0,0,0.05);
+            position: relative;
+            border-left: 45px solid #f9f6f1;
+        }
+        .notebook-page::before {
+            content: ''; position: absolute; top: 0; left: 15px;
+            height: 100%; width: 1px; background-color: rgba(230, 184, 175, 0.4);
+        }
+
+        .bento-item { transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .bento-item:hover { transform: translateY(-4px); }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+    
+        <div class="max-w-6xl mx-auto">
+            <header class="mb-12 ml-4 flex justify-between items-center">
     <div class="flex flex-col">
         <span class="text-[10px] font-mono uppercase tracking-[0.5em] text-[#E6B8AF] font-bold">SESSION_ID: 0xHELGA_CORE</span>
         <span class="text-[9px] text-gray-400 font-mono mt-1 italic">STATUS: HYDRATING_AESTHETICS...</span>
     </div>
-    <span class="text-[10px] font-mono text-gray-300 tracking-widest uppercase">CDMX // {{ "now" | dateFilter }}</span>
+    <span class="text-[10px] font-mono text-gray-300 tracking-widest uppercase">CDMX // Invalid Date</span>
 </header>
 
 <main class="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -36,19 +77,13 @@ title: "Home"
             <span class="text-[9px] font-mono text-gray-400 uppercase tracking-tighter italic">FETCHING_MEMORIES...</span>
         </div>
         
-        <div class="space-y-6">
-            {%- for story in collections.stories -%}
-            <a href="{{ story.url }}" class="group flex justify-between items-center hover:bg-white/60 p-5 rounded-3xl transition-all border border-transparent hover:border-[#F5E6E3]">
+        <div class="space-y-6"><a href="/stories/welcome/" class="group flex justify-between items-center hover:bg-white/60 p-5 rounded-3xl transition-all border border-transparent hover:border-[#F5E6E3]">
                 <div>
-                    <span class="text-[9px] font-mono text-[#E6B8AF] mb-1 block">TIMESTAMP // {{ story.data.date | dateFilter }}</span>
-                    <h3 class="text-2xl font-serif italic text-[#5A4B4B] group-hover:translate-x-2 transition-transform">{{ story.data.title }}</h3>
+                    <span class="text-[9px] font-mono text-[#E6B8AF] mb-1 block">TIMESTAMP // Dec 20, 2025</span>
+                    <h3 class="text-2xl font-serif italic text-[#5A4B4B] group-hover:translate-x-2 transition-transform">The Beginning of Helga</h3>
                 </div>
                 <span class="text-xl opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">✨</span>
-            </a>
-            {%- else -%}
-            <p class="italic text-gray-300 font-mono text-[10px]">EMPTY_ARCHIVE: Waiting for new inputs...</p>
-            {%- endfor -%}
-        </div>
+            </a></div>
     </div>
 
     <div class="md:col-span-1 bg-[#E6B8AF] p-8 rounded-[2rem] flex flex-col items-center justify-center text-center text-white bento-item shadow-lg shadow-[#E6B8AF]/20">
@@ -88,3 +123,7 @@ title: "Home"
         </div>
     </div>
 </main>
+        </div>
+    
+</body>
+</html>

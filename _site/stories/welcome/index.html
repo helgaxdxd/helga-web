@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} | Helga</title>
+    <title>The Beginning of Helga | Helga</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400&family=JetBrains+Mono:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -41,20 +41,19 @@
     </style>
 </head>
 <body class="p-4 md:p-12">
-    {% if title == "Home" or title == "Dashboard" %}
-        <div class="max-w-6xl mx-auto">
-            {{ content | safe }}
-        </div>
-    {% else %}
+    
         <div class="notebook-page mx-auto">
             <header class="mb-12 flex justify-between items-center border-b border-[#F5E6E3] pb-4">
                 <a href="/" class="text-[10px] font-mono text-[#E6B8AF] uppercase tracking-widest hover:italic">← EXIT_TO_TERMINAL</a>
-                <span class="text-[9px] font-mono text-gray-300 italic uppercase">FILE_PATH: /journal/{{ title | slug }}</span>
+                <span class="text-[9px] font-mono text-gray-300 italic uppercase">FILE_PATH: /journal/the-beginning-of-helga</span>
             </header>
             <article class="prose prose-stone leading-[32px] font-light italic text-[#5A4B4B]">
-                {{ content | safe }}
+                <h1>Hello world.</h1>
+<p>This is my new personal portal. As a systems engineer, I wanted a place to share my journey, my tech stack, and the moments captured in between.</p>
+<p>✨ <strong>Current Tech Stack:</strong> Eleventy + Tailwind CSS.</p>
+
             </article>
         </div>
-    {% endif %}
+    
 </body>
 </html>
