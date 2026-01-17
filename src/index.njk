@@ -74,9 +74,24 @@ title: "Dashboard"
     </div>
 
     <div class="md:col-span-1 bg-white/50 border border-[#F5E6E3] p-8 rounded-[2rem] flex flex-col justify-between">
+    <div>
         <span class="text-[10px] font-mono text-[#8C7575] uppercase tracking-widest block mb-4">// The_Vault</span>
-        <h2 class="text-2xl text-[#5A4B4B] font-serif italic mb-2">Cryptography</h2>
-        <span class="text-[9px] text-[#E6B8AF] font-bold uppercase mt-4">Status: Encrypted 🔐</span>
+        
+        {%- for post in collections.cryptography | limit(1) -%}
+            <a href="{{ post.url }}">
+                <h2 class="text-xl text-[#5A4B4B] font-serif italic mb-2 hover:text-[#E6B8AF] transition-colors">
+                    {{ post.data.title }}
+                </h2>
+                <p class="text-[9px] font-mono text-gray-400 italic">Latest_Entry: {{ post.date | dateFilter }}</p>
+            </a>
+        {%- else -%}
+            <p class="text-[10px] font-mono text-gray-400 italic">No logs found...</p>
+        {%- endfor -%}
+    </div>
+    
+    <div class="mt-4 pt-4 border-t border-[#F5E6E3]">
+        <span class="text-[9px] text-[#E6B8AF] font-bold uppercase tracking-tighter">Status: Encrypted 🔐</span>
+    </div>
     </div>
 
     <div class="md:col-span-1 h-full min-h-[150px] bg-[#F5E6E3] rounded-[2rem] overflow-hidden group relative border border-[#F5E6E3]">
@@ -92,4 +107,5 @@ title: "Dashboard"
         <p class="text-[10px] font-mono uppercase tracking-widest mb-2">Heart Protocol</p>
         <p class="text-xs font-serif italic">Curated essentials.</p>
     </div>
+
 </main>
