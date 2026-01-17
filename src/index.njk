@@ -77,7 +77,7 @@ title: "Dashboard"
     <div>
         <span class="text-[10px] font-mono text-[#8C7575] uppercase tracking-widest block mb-4">// The_Vault</span>
         
-        {%- for post in collections.cryptography | limit(1) -%}
+        {%- for post in collections.cryptography.slice(0,1) -%}
             <a href="{{ post.url }}">
                 <h2 class="text-xl text-[#5A4B4B] font-serif italic mb-2 hover:text-[#E6B8AF] transition-colors">
                     {{ post.data.title }}
